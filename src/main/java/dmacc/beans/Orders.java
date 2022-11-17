@@ -17,7 +17,10 @@ public class Orders {
 	@GeneratedValue private long id;
 	//Ill add the ability to do more than one movie in an order in sprint 2
 	//ArrayList<Movie> movies;
-	Movie movie;
-	Customer customer;
-	Employee employee;
+	//Movie movie;
+	String movie;
+	//Customer customer;
+	String customer;
+	//Employee employee;
+	String employee;
 }
