@@ -34,4 +34,3 @@ build/
 
 application.properties
 pom.properties
-/target/classes/META-INF/maven/dmacc/MovieStore/pom.properties
