@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Movie {
 	//Variables
@@ -19,6 +21,7 @@ public class Movie {
 	private long id;
 	private String name;
 	private String genre; //Could create bean for genre as well.
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate releaseDate;
 	
 	//Getters and Setters
