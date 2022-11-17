@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Movies</title>
+</head>
+<body>
+	<a href="/">Home</a>
+	<form>
+		<table>
+			<tr th:each="currentMovie: ${movies}">
+				<td th:text="${currentMovie.name}" />
+				<td th:text="${currentMovie.genre}" />
+				<td th:text="${currentMovie.releaseDate}" />
+				<td><a th:href="@{/edit/{id}(id=${currentMovie.id})}">Edit</a></td>
+				<td><a th:href="@{/delete/{id}(id=${currentMovie.id})}">Delete</a></td>
+			</tr>
+		</table>
+		<a href="../inputMovie">Add a new Movie</a>
+	</form>
+</body>
+</html>
