@@ -1,12 +1,11 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>View Movies</title>
+<title>Place Order Screen</title>
 </head>
 <body>
-	<a href="/">Home</a>
-	<form>
+<h3>Select Movie: </h3>
+<form>
 		<table>
 			<tr th:each="currentMovie: ${movies}">
 				<td th:text="${currentMovie.name}" />
@@ -19,5 +18,21 @@
 		</table>
 		<a href="../inputMovie">Add a new Movie</a>
 	</form>
+
+<h3>Select Customer (Or click add new):</h3>
+<form>
+		<table>
+			<tr th:each="currentCustomer: ${customers}">
+				<td th:text="${currentCustomer.firstName}" />
+				<td th:text="${currentCustomer.lastName}" />
+				<td th:text="${currentCustomer.id}" />
+			</tr>
+		</table>
+		<a href="../inputCustomer">Add a new customer</a>
+		<a href="../inputMovie">Add a new Movie</a>
+	</form>
+
+
+
 </body>
 </html>

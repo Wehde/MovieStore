@@ -64,5 +64,10 @@ public class MovieController {
 		repo.delete(m);
 		return viewAllMovies(model);
 	}
+	//**Come back to this, need create customer screen/confirm order first**
+	@PostMapping("/order/{id}")
+	public String orderMovie() {
+		return "0";
+	}
 	
 }
