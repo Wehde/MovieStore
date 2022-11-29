@@ -34,7 +34,7 @@ public class OrderController {
 	public String addNewOrder(Model model) {
 		Orders o = new Orders();
 		model.addAttribute("newOrder", o);
-		return "input";
+		return "PlaceOrder";
 	}
 
 	@PostMapping("/inputOrder")
