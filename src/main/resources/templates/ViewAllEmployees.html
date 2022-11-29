@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View all Employees</title>
+</head>
+<body>
+
+<a href="/">Home</a>
+	<form>
+		<table>
+			<tr th:each="currentEmployee: ${customers}">
+				<td th:text="${currentEmployee.firstName}" />
+				<td th:text="${currentEmployee.lastName}" />
+				<td th:text="${currentEmployee.id}" />
+				<td><a th:href="@{/edit/{id}(id=${currentEmployee.id})}">Edit</a></td>
+				<td><a th:href="@{/delete/{id}(id=${currentEmployee.id})}">Delete</a></td>
+			</tr>
+		</table>
+		<a href="inputEmployee">Add a new Employee</a>
+	</form>
+
+</body>
+</html>

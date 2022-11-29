@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Employee Screen</title>
+</head>
+<body>
+
+<form name="newEmployeeForm" th:object="${newEmployee}" th:action="@{/employees/update/{id}(id=${newEmployee.id})}" method=POST>
+		First Name: <input name="firstName" size="20" th:field="*{firstName}"><br />
+		Last Name: <input name="lastName" size="20" th:field="*{lastName}"><br />
+		<input name="Submit" type="submit" value="submit" />
+	</form>
+	<a href="/employees/viewAll">View All Employees</a>
+
+</body>
+</html>
