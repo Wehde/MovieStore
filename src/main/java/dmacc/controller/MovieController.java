@@ -5,6 +5,8 @@
  */
 package dmacc.controller;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +30,13 @@ public class MovieController {
 		if (repo.findAll().isEmpty()) {
 			return addNewMovie(model);
 		}
-		model.addAttribute("movies", repo.findAll());
+		model.addAttribute("movies", repo.findByReleaseDateBeforeOrderByGenre(LocalDate.now()));
+		return "movieResults";
+	}
+	
+	@GetMapping("/upcomingReleases")
+	public String viewUpcomingMovies(Model model) {
+		model.addAttribute("movies", repo.findByReleaseDateBetweenOrderByReleaseDate(LocalDate.now(), LocalDate.now().plusDays(30)));
 		return "movieResults";
 	}
 	
@@ -64,6 +72,7 @@ public class MovieController {
 		repo.delete(m);
 		return viewAllMovies(model);
 	}
+	
 	//**Come back to this, need create customer screen/confirm order first**
 	@PostMapping("/order/{id}")
 	public String orderMovie() {
