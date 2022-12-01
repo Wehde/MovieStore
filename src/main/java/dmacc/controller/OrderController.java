@@ -27,7 +27,7 @@ public class OrderController {
 			return addNewOrder(model);
 		}
 		model.addAttribute("orders", repo.findAll());
-		return "results";
+		return "ViewAllOrders";
 	}
 
 	@GetMapping("/inputOrder")
@@ -51,7 +51,7 @@ public class OrderController {
 	}
 
 	@PostMapping("/update/{id}")
-	public String reviseBottle(Orders o, Model model) {
+	public String reviseOrder(Orders o, Model model) {
 		repo.save(o);
 		return viewAllOrders(model);
 	}

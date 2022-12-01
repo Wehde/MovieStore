@@ -18,9 +18,11 @@ public class Orders {
 	//Ill add the ability to do more than one movie in an order in sprint 2
 	//ArrayList<Movie> movies;
 	//Movie movie;
-	String movie;
+	String orderMovieTitle;
 	//Customer customer;
-	String customer;
+	String orderCustomerName;
 	//Employee employee;
-	String employee;
+	String orderEmployeeName;
+	String buyOrRent;
+	String orderQuantity;
 }

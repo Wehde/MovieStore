@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View all orders</title>
+</head>
+<body>
+
+	<a href="/">Home</a>
+	<form>
+		<table>
+			<tr th:each="currentOrder: ${orders}">
+				<td th:text="${currentOrder.orderEmployeeName}" />
+				<td th:text="${currentOrder.orderCustomerName}" />
+				<td th:text="${currentOrder.buyOrRent}" />
+				<td th:text="${currentOrder.orderQuantity}" />
+				<td><a th:href="@{/edit/{id}(id=${currentOrder.id})}">Edit</a></td>
+				<!-- commenting out delete since orders shouldn't have to be deleted but may have to be edited IE returns 
+				<td><a th:href="@{/delete/{id}(id=${currentOrder.id})}">Delete</a></td>
+				-->
+			</tr>
+		</table>
+		<a href="inputOrder">Place a new order</a>
+	</form>
+
+</body>
+</html>
