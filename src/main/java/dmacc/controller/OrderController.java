@@ -1,5 +1,9 @@
 package dmacc.controller;
 
+import java.awt.print.Pageable;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,11 +12,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
 
 import dmacc.beans.Orders;
+import dmacc.repository.CustomerRepo;
 import dmacc.repository.OrderRepo;
-
+import dmacc.beans.Customer;
 
 
 @Controller
@@ -20,6 +28,13 @@ import dmacc.repository.OrderRepo;
 public class OrderController {
 	@Autowired
 	OrderRepo repo;
+	CustomerRepo cRepo;
+	
+	
+	@ModelAttribute("customers")
+    public List<Customer> messages() {
+        return cRepo.findAll();
+    }
 
 	@GetMapping({ "/", "viewAll" })
 	public String viewAllOrders(Model model) {
@@ -62,5 +77,8 @@ public class OrderController {
 		repo.delete(o);
 		return viewAllOrders(model);
 	}
+	
+	
+	
 
 }

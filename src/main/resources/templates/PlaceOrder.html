@@ -7,6 +7,12 @@
 <h3>Place Order: </h3>
 
 <form name="newOrderForm" th:object="${newOrder}" th:action="@{/orders/update/{id}(id=${newOrder.id})}" method=POST>
+		
+		TestCustomerName <select th:field ="*{orderCustomerName}">
+		<option th:each="customer : ${customers}" th:value="{customer.firstName}" th:text="${customer.firstName}"></option>
+		</select>
+		
+		<br><br>
 		Employee Name: <input name="orderEmployeeName" size="20" th:field="*{orderEmployeeName}"><br />
 		Customer Name: <input name="orderCustomerName" size="20" th:field="*{orderCustomerName}">  <br />
 		Movie Title: <input name="orderMovieTitle" size="20" th:field="*{orderMovieTitle}">  <br />
