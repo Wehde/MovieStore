@@ -11,6 +11,7 @@
 			<tr th:each="currentOrder: ${orders}">
 				<td th:text="${currentOrder.orderEmployeeName}" />
 				<td th:text="${currentOrder.orderCustomerName}" />
+				<td th:text="${currentOrder.orderMovieTitle}" />
 				<td th:text="${currentOrder.buyOrRent}" />
 				<td th:text="${currentOrder.orderQuantity}" />
 				<td><a th:href="@{/edit/{id}(id=${currentOrder.id})}">Edit</a></td>
@@ -19,7 +20,7 @@
 				-->
 			</tr>
 		</table>
-		<a href="inputOrder">Place a new order</a>
+		<button type="button" onclick="window.location.href='orders/inputOrder'">Place Order</button>
 	</form>
 
 </body>

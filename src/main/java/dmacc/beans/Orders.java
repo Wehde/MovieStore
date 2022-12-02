@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Orders {
 	@Id
 	@GeneratedValue private long id;
-	//Ill add the ability to do more than one movie in an order in sprint 2
+	//Ill add the ability to do more than one movie in an order later
 	//ArrayList<Movie> movies;
 	//Movie movie;
 	String orderMovieTitle;

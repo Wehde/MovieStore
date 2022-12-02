@@ -10,17 +10,17 @@
 		
 		Customer Name <select th:field ="*{orderCustomerName}">
 		<option value="none" selected>Choose a Customer</option>
-		<option th:each="customer : ${customers}" th:value="customerName" th:text="${customer.id + ' ' + customer.firstName + ' '+ customer.lastName}"></option>
+		<option th:each="customer : ${customers}" th:value="${customer.id + ' ' + customer.firstName + ' '+ customer.lastName}" th:text="${customer.id + ' ' + customer.firstName + ' '+ customer.lastName}"></option>
 		</select>
 		<br><br>
 		Employee Name <select th:field ="*{orderEmployeeName}">
 		<option value="none" selected>Choose an Employee</option>
-		<option th:each="employee : ${employees}" th:value="employeeName" th:text="${employee.id + ' ' + employee.firstName + ' '+ employee.lastName}"></option>
+		<option th:each="employee : ${employees}" th:value="employee.id + ' ' + employee.firstName + ' '+ employee.lastName" th:text="${employee.id + ' ' + employee.firstName + ' '+ employee.lastName}"></option>
 		</select>
 		<br><br>
 		Movie Title <select th:field ="*{orderMovieTitle}">
 		<option value="none" selected>Choose a Movie</option>
-		<option th:each="movie : ${movies}" th:value="movieName" th:text="${movie.id + ' ' + movie.name}"></option>
+		<option th:each="movie : ${movies}" th:value="movie.id + ' ' + movie.name" th:text="${movie.id + ' ' + movie.name}"></option>
 		</select>
 		<br><br>
 		Buy/Rent: <select th:field ="*{buyOrRent}">
