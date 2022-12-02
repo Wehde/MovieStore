@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,8 +20,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import dmacc.beans.Orders;
 import dmacc.repository.CustomerRepo;
+import dmacc.repository.EmployeeRepo;
+import dmacc.repository.MovieRepo;
 import dmacc.repository.OrderRepo;
 import dmacc.beans.Customer;
+import dmacc.beans.Employee;
+import dmacc.beans.Movie;
 
 
 @Controller
@@ -28,12 +33,27 @@ import dmacc.beans.Customer;
 public class OrderController {
 	@Autowired
 	OrderRepo repo;
+	@Autowired
 	CustomerRepo cRepo;
+	@Autowired
+	EmployeeRepo eRepo;
+	@Autowired
+	MovieRepo mRepo;
 	
 	
 	@ModelAttribute("customers")
-    public List<Customer> messages() {
+    public List<Customer> customers() {
         return cRepo.findAll();
+    }
+	
+	@ModelAttribute("employees")
+    public List<Employee> employees() {
+        return eRepo.findAll();
+    }
+	
+	@ModelAttribute("movies")
+    public List<Movie> movies() {
+        return mRepo.findAll();
     }
 
 	@GetMapping({ "/", "viewAll" })

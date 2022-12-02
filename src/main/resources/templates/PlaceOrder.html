@@ -8,21 +8,34 @@
 
 <form name="newOrderForm" th:object="${newOrder}" th:action="@{/orders/update/{id}(id=${newOrder.id})}" method=POST>
 		
-		TestCustomerName <select th:field ="*{orderCustomerName}">
-		<option th:each="customer : ${customers}" th:value="{customer.firstName}" th:text="${customer.firstName}"></option>
+		Customer Name <select th:field ="*{orderCustomerName}">
+		<option value="none" selected>Choose a Customer</option>
+		<option th:each="customer : ${customers}" th:value="customerName" th:text="${customer.id + ' ' + customer.firstName + ' '+ customer.lastName}"></option>
 		</select>
-		
 		<br><br>
-		Employee Name: <input name="orderEmployeeName" size="20" th:field="*{orderEmployeeName}"><br />
-		Customer Name: <input name="orderCustomerName" size="20" th:field="*{orderCustomerName}">  <br />
-		Movie Title: <input name="orderMovieTitle" size="20" th:field="*{orderMovieTitle}">  <br />
-		Buy/Rent: <input name="buyOrRent" size="20" th:field="*{buyOrRent}"><br />
-		Quantity: <input type="number" name="orderQuantity" size="20" th:field="*{orderQuantity}"><br />
+		Employee Name <select th:field ="*{orderEmployeeName}">
+		<option value="none" selected>Choose an Employee</option>
+		<option th:each="employee : ${employees}" th:value="employeeName" th:text="${employee.id + ' ' + employee.firstName + ' '+ employee.lastName}"></option>
+		</select>
+		<br><br>
+		Movie Title <select th:field ="*{orderMovieTitle}">
+		<option value="none" selected>Choose a Movie</option>
+		<option th:each="movie : ${movies}" th:value="movieName" th:text="${movie.id + ' ' + movie.name}"></option>
+		</select>
+		<br><br>
+		Buy/Rent: <select th:field ="*{buyOrRent}">
+		<option value="none" selected>Make a Choice</option>
+		<option th:value="rent" th:text="Rent"></option>
+		<option th:value="buy" th:text="Buy"></option>
+		</select>
+		<br><br>
+		Quantity: <input type="number" name="orderQuantity" size="20" th:field="*{orderQuantity}"><br/>
+		<br><br>
 		<input name="Submit" type="submit" value="submit" />
 	</form>
 	<a href="/movies/viewAll">View all Movies</a><br />
 	<a href="/customers/viewAll">View all Customers</a><br />
-	<a href="/orders/viewAll">View All Employees</a>
+	<a href="/employees/viewAll">View All Employees</a>
 
 
 </body>

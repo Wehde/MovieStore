@@ -13,7 +13,10 @@ import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class Movie {
 	//Variables
 	@Id

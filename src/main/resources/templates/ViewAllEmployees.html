@@ -8,7 +8,7 @@
 <a href="/">Home</a>
 	<form>
 		<table>
-			<tr th:each="currentEmployee: ${customers}">
+			<tr th:each="currentEmployee: ${employees}">
 				<td th:text="${currentEmployee.firstName}" />
 				<td th:text="${currentEmployee.lastName}" />
 				<td th:text="${currentEmployee.id}" />
