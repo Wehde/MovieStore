@@ -12,8 +12,8 @@
 				<td th:text="${currentEmployee.firstName}" />
 				<td th:text="${currentEmployee.lastName}" />
 				<td th:text="${currentEmployee.id}" />
-				<td><a th:href="@{/edit/{id}(id=${currentEmployee.id})}">Edit</a></td>
-				<td><a th:href="@{/delete/{id}(id=${currentEmployee.id})}">Delete</a></td>
+				<td><a th:href="@{/employees/edit/{id}(id=${currentEmployee.id})}">Edit</a></td>
+				<td><a th:href="@{/employees/delete/{id}(id=${currentEmployee.id})}">Delete</a></td>
 			</tr>
 		</table>
 	</form>

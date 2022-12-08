@@ -13,8 +13,8 @@
  <td th:text="${currentOrder.customer.name}" />
  <td th:text="${currentOrder.employeeName}" />
 
-<td><a th:href="@{/edit/{id}(id=${currentOrder.id})}">Edit</a></td>
-<td><a th:href="@{/delete/{id}(id=${currentOrder.id})}">Delete</a></td>
+<td><a th:href="@{/orders/edit/{id}(id=${currentOrder.id})}">Edit</a></td>
+<td><a th:href="@{/orders/delete/{id}(id=${currentOrder.id})}">Delete</a></td>
 </tr>
 </table>
 </form>

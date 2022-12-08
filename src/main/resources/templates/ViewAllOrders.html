@@ -39,7 +39,7 @@ tr:nth-child(even) {
 				<td th:text="${currentOrder.orderMovieTitle}" />
 				<td th:text="${currentOrder.buyOrRent}" />
 				<td th:text="${currentOrder.orderQuantity}" />
-				<td><a th:href="@{/edit/{id}(id=${currentOrder.id})}">Edit</a></td>
+				<td><a th:href="@{/orders/edit/{id}(id=${currentOrder.id})}">Edit</a></td>
 				<!-- commenting out delete since orders shouldn't have to be deleted but may have to be edited IE returns 
 				<td><a th:href="@{/delete/{id}(id=${currentOrder.id})}">Delete</a></td>
 				-->
