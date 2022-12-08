@@ -24,8 +24,8 @@ import dmacc.repository.MovieRepo;
 public class MovieController {
 	@Autowired
 	MovieRepo repo;
-	
-	@GetMapping({"/", "viewAll"})
+
+	@GetMapping({ "/", "viewAll" })
 	public String viewAllMovies(Model model) {
 		if (repo.findAll().isEmpty()) {
 			return addNewMovie(model);
@@ -33,50 +33,45 @@ public class MovieController {
 		model.addAttribute("movies", repo.findByReleaseDateBeforeOrderByGenre(LocalDate.now()));
 		return "movieResults";
 	}
-	
+
 	@GetMapping("/upcomingReleases")
 	public String viewUpcomingMovies(Model model) {
-		model.addAttribute("movies", repo.findByReleaseDateBetweenOrderByReleaseDate(LocalDate.now(), LocalDate.now().plusDays(30)));
+		model.addAttribute("movies",
+				repo.findByReleaseDateBetweenOrderByReleaseDate(LocalDate.now(), LocalDate.now().plusDays(30)));
 		return "movieResults";
 	}
-	
+
 	@GetMapping("/inputMovie")
 	public String addNewMovie(Model model) {
 		Movie m = new Movie();
 		model.addAttribute("newMovie", m);
 		return "movieInput";
 	}
-	
+
 	@PostMapping("/inputMovie")
 	public String addNewMovie(@ModelAttribute Movie m, Model model) {
 		repo.save(m);
 		return viewAllMovies(model);
 	}
-	
+
 	@GetMapping("/edit/{id}")
 	public String showUpdateMovie(@PathVariable("id") long id, Model model) {
 		Movie m = repo.findById(id).orElse(null);
 		model.addAttribute("newMovie", m);
 		return "movieInput";
 	}
-	
+
 	@PostMapping("/update/{id}")
 	public String reviseMovie(Movie m, Model model) {
 		repo.save(m);
 		return viewAllMovies(model);
 	}
-	
+
 	@GetMapping("/delete/{id}")
 	public String deleteMovie(@PathVariable("id") long id, Model model) {
 		Movie m = repo.findById(id).orElse(null);
 		repo.delete(m);
 		return viewAllMovies(model);
 	}
-	
-	//**Come back to this, need create customer screen/confirm order first**
-	@PostMapping("/order/{id}")
-	public String orderMovie() {
-		return "0";
-	}
-	
+
 }

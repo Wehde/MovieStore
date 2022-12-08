@@ -1,10 +1,9 @@
 package dmacc.beans;
 
-import java.util.ArrayList;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +16,8 @@ public class Orders {
 	@GeneratedValue private long id;
 	//Ill add the ability to do more than one movie in an order later
 	//ArrayList<Movie> movies;
-	//Movie movie;
+	@ManyToOne
+	Movie movie;
 	String orderMovieTitle;
 	//Customer customer;
 	String orderCustomerName;

@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<a href="/">Home</a>
+	<a href="/">Home</a>
 	<form>
 		<table>
 			<tr th:each="currentEmployee: ${employees}">
@@ -16,8 +16,7 @@
 				<td><a th:href="@{/delete/{id}(id=${currentEmployee.id})}">Delete</a></td>
 			</tr>
 		</table>
-		<a href="inputEmployee">Add a new Employee</a>
 	</form>
-
+	<a href="inputEmployee">Add a new Employee</a>
 </body>
 </html>

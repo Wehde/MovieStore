@@ -1,7 +1,6 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>View Movies</title>
 </head>
 <body>
@@ -14,10 +13,10 @@
 				<td th:text="${currentMovie.releaseDate}" />
 				<td><a th:href="@{/edit/{id}(id=${currentMovie.id})}">Edit</a></td>
 				<td><a th:href="@{/delete/{id}(id=${currentMovie.id})}">Delete</a></td>
-				<td><a th:href="@{/order/{id}(id=${currentMovie.id})}">Order</a></td>
 			</tr>
 		</table>
-		<a href="inputMovie">Add a new Movie</a>
+		
 	</form>
+	<a href="inputMovie">Add a new Movie</a>
 </body>
 </html>

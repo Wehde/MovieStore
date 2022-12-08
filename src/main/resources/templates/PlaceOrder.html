@@ -15,12 +15,12 @@
 		<br><br>
 		Employee Name <select th:field ="*{orderEmployeeName}">
 		<option value="none" selected>Choose an Employee</option>
-		<option th:each="employee : ${employees}" th:value="employee.id + ' ' + employee.firstName + ' '+ employee.lastName" th:text="${employee.id + ' ' + employee.firstName + ' '+ employee.lastName}"></option>
+		<option th:each="employee : ${employees}" th:value="${employee.id + ' ' + employee.firstName + ' '+ employee.lastName}" th:text="${employee.id + ' ' + employee.firstName + ' '+ employee.lastName}"></option>
 		</select>
 		<br><br>
 		Movie Title <select th:field ="*{orderMovieTitle}">
 		<option value="none" selected>Choose a Movie</option>
-		<option th:each="movie : ${movies}" th:value="movie.id + ' ' + movie.name" th:text="${movie.id + ' ' + movie.name}"></option>
+		<option th:each="movie : ${movies}" th:value="${movie.id + ' ' + movie.name}" th:text="${movie.id + ' ' + movie.name}"></option>
 		</select>
 		<br><br>
 		Buy/Rent: <select th:field ="*{buyOrRent}">
@@ -35,7 +35,8 @@
 	</form>
 	<a href="/movies/viewAll">View all Movies</a><br />
 	<a href="/customers/viewAll">View all Customers</a><br />
-	<a href="/employees/viewAll">View All Employees</a>
+	<a href="/employees/viewAll">View All Employees</a><br>
+	<a href="/orders/viewAll">View All Orders</a>
 
 
 </body>

@@ -2,12 +2,37 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>View all orders</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 </head>
 <body>
 
 	<a href="/">Home</a>
 	<form>
 		<table>
+			<tr>
+			<th>Employee</th>
+			<th>Customer</th>
+			<th>Movie</th>
+			<th>Buy/Rent</th>
+			<th>Quantity</th>
+			<th>Edit</th> 
+			</tr>
 			<tr th:each="currentOrder: ${orders}">
 				<td th:text="${currentOrder.orderEmployeeName}" />
 				<td th:text="${currentOrder.orderCustomerName}" />

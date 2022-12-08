@@ -26,6 +26,8 @@ public class Movie {
 	private String genre; //Could create bean for genre as well.
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate releaseDate;
+	private int quantity;
+	private double price;
 	
 	//Getters and Setters
 	/**
