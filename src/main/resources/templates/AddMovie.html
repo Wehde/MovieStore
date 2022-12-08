@@ -4,8 +4,8 @@
 <meta charset="ISO-8859-1">
 <title>Add Movie</title>
 </head>
-<a href="/">Home</a>
 <body>
+<a href="/">Home</a>
 	<form name="movieForm" th:object="${newMovie}" th:action="@{/movies/update/{id}(id=${newMovie.id})}" method=POST>
 		Name: <input name="name" size="20" th:field="*{name}"><br />
 		Genre: <input name="genre" size="20" th:field="*{genre}"><br />

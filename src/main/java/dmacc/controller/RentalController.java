@@ -59,7 +59,7 @@ public class RentalController {
 		List<Movie> movies = mRepo.findAll();
 		model.addAttribute("allMovies", movies);
 		
-		return "rentalInput";	
+		return "AddRental";	
 	}
 	
 	@PostMapping("/inputRental")
@@ -76,7 +76,7 @@ public class RentalController {
 		List<Movie> movies = mRepo.findAll();
 		model.addAttribute("allMovies", movies);
 		
-		return "rentalInput";	
+		return "AddRental";	
 	}
 	
 	@PostMapping("/update/{id}")
