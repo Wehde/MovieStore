@@ -10,10 +10,10 @@
 		<table>
 			<tr th:each="currentRental: ${rentals}">
 				<td th:text="${currentRental.movie.name}" />
-				<td th:text="${currentRental.genre}" />
-				<td th:text="${currentMovie.releaseDate}" />
-				<td><a th:href="@{/rentals/edit/{id}(id=${currentMovie.id})}">Edit</a></td>
-				<td><a th:href="@{/rentals/delete/{id}(id=${currentMovie.id})}">Delete</a></td>
+				<td th:text="${currentRental.movie.genre}" />
+				<td th:text="${currentRental.rate}" />
+				<td><a th:href="@{/rentals/edit/{id}(id=${currentRental.id})}">Edit</a></td>
+				<td><a th:href="@{/rentals/delete/{id}(id=${currentRental.id})}">Delete</a></td>
 		</table>
 	</form>
 </body>

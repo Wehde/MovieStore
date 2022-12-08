@@ -31,21 +31,21 @@ public class MovieController {
 			return addNewMovie(model);
 		}
 		model.addAttribute("movies", repo.findByReleaseDateBeforeOrderByGenre(LocalDate.now()));
-		return "movieResults";
+		return "ViewAllMovies";
 	}
 
 	@GetMapping("/upcomingReleases")
 	public String viewUpcomingMovies(Model model) {
 		model.addAttribute("movies",
 				repo.findByReleaseDateBetweenOrderByReleaseDate(LocalDate.now(), LocalDate.now().plusDays(30)));
-		return "movieResults";
+		return "ViewAllMovies";
 	}
 
 	@GetMapping("/inputMovie")
 	public String addNewMovie(Model model) {
 		Movie m = new Movie();
 		model.addAttribute("newMovie", m);
-		return "movieInput";
+		return "AddMovie";
 	}
 
 	@PostMapping("/inputMovie")
@@ -58,7 +58,7 @@ public class MovieController {
 	public String showUpdateMovie(@PathVariable("id") long id, Model model) {
 		Movie m = repo.findById(id).orElse(null);
 		model.addAttribute("newMovie", m);
-		return "movieInput";
+		return "AddMovie";
 	}
 
 	@PostMapping("/update/{id}")

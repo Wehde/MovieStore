@@ -39,7 +39,7 @@ public class RentalController {
 			return addNewRental(model);
 		}
 		model.addAttribute("rentals", rRepo.findAll());
-		return "rentalResults";
+		return "ViewAllRentals";
 	}
 	
 	@GetMapping({"/checkedOut/{id}"})
